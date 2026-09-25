@@ -87,6 +87,11 @@ jobs:
           test -d KernelSU
           echo "KernelSU directory found."
 
+      - name: Fix userfaultfd vma_merge argument mismatch
+        run: |
+          sed -i 's/NULL_VM_UFFD_CTX)/NULL_VM_UFFD_CTX, NULL)/g' fs/userfaultfd.c
+
+
       - name: Inject Android 17 Configs
         run: |
           cat << 'EOF' >> arch/arm64/configs/exynos7885-a20_defconfig
