@@ -257,13 +257,9 @@ jobs:
           echo "===== FINAL ZIP ====="
           ls -lh Eureka_A205F_GitHub.zip
 
-      - name: Upload kernel artifacts
+
+      - name: Upload Flashable Kernel
         uses: actions/upload-artifact@v4
         with:
-          name: Eureka-A205F-Kernel
-          path: |
-            Eureka_A205F_GitHub.zip
-            out/arch/arm64/boot/Image
-            out/arch/arm64/boot/dtb.img
-            out/arch/arm64/boot/dtbo.img
-          if-no-files-found: error
+          name: Eureka-A205F-Kernel-Flashable
+          path: Eureka_A205F_GitHub.zip
